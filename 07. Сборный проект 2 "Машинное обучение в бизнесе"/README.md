@@ -12,52 +12,16 @@
 1. Проведена предобработка данных: заполнены пропуски, данные проверены на дубликаты и наличие мультиколлинеарности.
 2. По итогам анализа признаков на мультиколлинеарность, подготовлено два альтернативных обучающих датасета, в которых удалены сильнокоррелирующие признаки.
 3. Проведен исследовательский анализ данных:
-      3.1. Исследовано, как меняется концентрация металлов (Au, Ag, Pb) на различных этапах очистки.
-      3.2. Проведено сравнение распределения размеров гранул сырья на обучающей и тестовой выборках.
-      3.3. Исследована суммарная концентрация всех веществ на разных стадиях: в сырье, в черновом и финальном концентратах.
+      - Исследовано, как меняется концентрация металлов (Au, Ag, Pb) на различных этапах очистки.
+      - Проведено сравнение распределения размеров гранул сырья на обучающей и тестовой выборках.
+      - Исследована суммарная концентрация всех веществ на разных стадиях: в сырье, в черновом и финальном концентратах.
 4. Обучены следующие модели:
-      - RandomForestRegressor()
-      - LinearRegression()
-      - DecisionTreeRegressor()
-      - KNeighborsRegressor()
-      - Lasso()
-    
+      - `RandomForestRegressor()`
+      - `LinearRegression()`
+      - `DecisionTreeRegressor()`
+      - `KNeighborsRegressor()`
+      - `Lasso()`
 
-В ходе работы над проектом были проведены следующие исследования и получены соотвествующие результаты:
+5. Итоговая модель построена на алгоритме RandomForestRegressor. Ошибка на тестовой выборке: 6.9242
 
-   1. Подготовка и обзор данных:
-       - заполнение пропусков,
-       - удаление строк и столбцов, не нужных при исследовании.
-     
-     
-   2. За основу исследования взяты четыре базовые модели, которые показали следующее качество:
-       - `DecisionTreeClassifier`: F1=0.49, AUC-ROC=0.73;
-       - `LogisticRegression`: F1=0.28, AUC-ROC=0.76; 
-       - `RandomForestClassifier`: F1=0.60, AUC-ROC=0.86;  
-       - `LGBMClassifier`: F1=0.54, AUC-ROC=0.81
-
-
-
-1. Итоговая модель построена на алгоритме RandomForestRegressor 
-2. Ошибка на тестовой выборке: 6.9242
-3. Параметры алгоритма: 
-     - для таргета `rougher.output.recovery`:
-     
-                      RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=7,
-                      max_features='auto', max_leaf_nodes=None,
-                      min_impurity_decrease=0.0, min_impurity_split=None,
-                      min_samples_leaf=2, min_samples_split=2,
-                      min_weight_fraction_leaf=0.0, n_estimators=15,
-                      n_jobs=None, oob_score=False, random_state=None,
-                      verbose=0, warm_start=False)
-                      
-     - для таргета `final.output.recovery`:
-     
-                      RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=1,
-                      max_features='auto', max_leaf_nodes=None,
-                      min_impurity_decrease=0.0, min_impurity_split=None,
-                      min_samples_leaf=1, min_samples_split=2,
-                      min_weight_fraction_leaf=0.0, n_estimators=20,
-                      n_jobs=None, oob_score=False, random_state=None,
-                      verbose=0, warm_start=False)
 #### Использумые библиотеки и инструменты:
